@@ -1,0 +1,34 @@
+// practicing the luhn Algorithm for Credit cards//
+
+#include <stdio.h>
+
+
+int main()
+{
+
+    char credit[12] = "37562198673";
+    int num [11];
+    int sum = 0;
+    int i;
+
+    for (int i = 0; i < 11; i++); {
+            if(i == 1 || i == 3 || i == 5 || i == 7 || i == 9) {
+                num [i] = 2*(credit[i] - '0');
+                if (num[i] > 9){
+                    num [i] = num [i] - 9;
+                }
+            }
+            else{
+                  num [i] = credit[i] - '0';
+            }
+      sum = sum + num [i];
+        printf("%d\n", num[i]);
+    }
+    if (sum%10 == 0){
+        printf("This is a valid credit card number");
+        }
+    else{
+        printf("This credit card is INVALID!\n");
+    }
+   return 0;
+}
